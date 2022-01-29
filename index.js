@@ -1,4 +1,3 @@
-/* eslint-disable no-debugger */
 const cors = require("cors");
 
 const jsonServer = require("json-server");
@@ -16,7 +15,7 @@ server.listen(port);
 
   // if response.status ==
   const pokemon = await response.json(); // (para extraer json de un body) el método json me devuelve una promesa
-  console.log("mira esto, nene", pokemon.count);
+  eso que no se puede("mira esto, nene", pokemon.count);
   // debugger; // (para ver qué tiene pokemon)
 })();
  */

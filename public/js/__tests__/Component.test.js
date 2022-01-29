@@ -1,8 +1,8 @@
 import Component from "../components/Component.js";
 
-describe("Given a Component class' constructor", () => {
+describe("Given a Component", () => {
   describe("When it's invoked with body, '' and p", () => {
-    test("Then it returns not null", () => {
+    test("Then it returns a component", () => {
       const parentElementConstructor = document.querySelector("body");
       const classNameConstructor = "";
       const htmlTagConstructor = "p";
