@@ -13,8 +13,7 @@ export default class Pokemon extends Component {
   }
 
   generateHTML() {
-    this.element.innerHTML = `
-      <img 
+    this.element.innerHTML = `<img 
           class="pokemon__avatar"
            src="${this.pokemon.picture}" 
           alt="Pokemon ${this.pokemon.name}"
@@ -23,8 +22,7 @@ export default class Pokemon extends Component {
         <h2 class="pokemon__name">${this.pokemon.name}</h2>
         <p class="pokemon__data-label">Weight: ${this.pokemon.weight}</p>
         <p class="pokemon__data-label">Height: ${this.pokemon.height}</p>
-      <div>
-    `;
+      <div>`;
   }
 
   addListeners() {
