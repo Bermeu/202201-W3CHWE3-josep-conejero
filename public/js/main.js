@@ -9,4 +9,4 @@ const mainPage = document.querySelector("body");
   },
 ]; */
 // const page = new PageComponent(mainPage, [], "Página de Pokémons");
-const page = new PageComponent(mainPage, "Página de Pokémons");
+const page = new PageComponent(mainPage, "Pokemon");
