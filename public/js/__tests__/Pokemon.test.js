@@ -1,60 +1,53 @@
 /* eslint-disable no-unused-vars */
-import Component from "../components/Component.js";
-/* import Card from "../components/Card.js"; */
+import Pokemon from "../components/Pokemon.js";
 
-/* describe("Given a Card class' constructor", () => {
-  describe("When it's invoked with body, '' and pokemon", () => {
-    test("Then it returns not null", () => {
-      const pokemon = {};
+describe("Given a Pokemon Component", () => {
+  describe("When it's rendered", () => {
+    test("Then it should render a Pokemon", () => {
       const parentElementConstructor = document.querySelector("body");
-      const classNameConstructor = "";
+      const pokemonInfo = {};
+      const action = jest.fn();
 
-      const card = new Card(
+      const pokemonElement = new Pokemon(
         parentElementConstructor,
-        classNameConstructor,
-        pokemon
+        pokemonInfo,
+        action
       );
+      const pokemonCard = document.querySelector(".pokemon");
 
-      const cardP = document.querySelector("body div");
-
-      expect(cardP).not.toBeNull();
+      expect(pokemonCard).not.toBeNull();
     });
   });
 
-  describe("When it's invoked with body, '' and serie with a name", () => {
-    test("Then it returns an alt = The Sopranos poster", () => {
-      const pokemon = { name: "nombre" };
-      const parentElementConstructor = document.querySelector("body");
-      const classNameConstructor = "";
-      const expectedValue = "nombre";
+  describe("When it receives an action", () => {
+    test("Then the action should be invoked", () => {
+      const container = document.createElement("div");
+      const pokemonInfo = {};
+      const action = jest.fn();
 
-      const card = new Card(
-        parentElementConstructor,
-        classNameConstructor,
-        pokemon
-      );
-      const obtainedValue = document.querySelector("body").pokemon.name;
+      const pokemonCard = new Pokemon(container, pokemonInfo, action);
+      pokemonCard.element.click();
 
-      expect(obtainedValue).toBe(expectedValue);
+      expect(action).toHaveBeenCalled();
     });
   });
-}); */
 
-describe("Given a Component class' constructor", () => {
-  describe("When it's invoked with body, '' and p", () => {
-    test("Then it returns not null", () => {
-      const parentElementConstructor = document.querySelector("body");
-      const classNameConstructor = "";
-      const htmlTagConstructor = "p";
+  describe("When it receives info", () => {
+    test("Then the action should be invoked", () => {
+      const container = document.createElement("div");
+      const pokemonInfo = {
+        picture: "picture",
+        name: "name",
+        weight: "weight",
+        height: "height",
+      };
+      const expectedValue = "name";
+      const action = jest.fn();
 
-      const component = new Component(
-        parentElementConstructor,
-        classNameConstructor,
-        htmlTagConstructor
-      );
-      const componentP = document.querySelector("body p");
+      const pokemonCard = new Pokemon(container, pokemonInfo, action);
+      pokemonCard.element.click();
 
-      expect(componentP).not.toBeNull();
+      expect(pokemonCard.pokemon.name).toBe(expectedValue);
     });
   });
 });

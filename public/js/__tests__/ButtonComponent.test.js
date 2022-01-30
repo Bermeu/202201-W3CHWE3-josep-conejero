@@ -13,9 +13,9 @@ describe("Given a ButtonComponent component", () => {
   });
 
   describe("When it receives 'Do something' as text", () => {
-    test("Then it should render a button with the text 'Do something' inside", () => {
+    test("Then it should render a button with the text 'MOSTRAR' inside", () => {
       const container = document.createElement("div");
-      const text = "Do something";
+      const text = "MOSTRAR";
 
       const button = new ButtonComponent(container, "", text);
 
