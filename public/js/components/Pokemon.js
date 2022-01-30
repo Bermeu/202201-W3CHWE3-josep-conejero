@@ -15,11 +15,12 @@ export default class Pokemon extends Component {
   generateHTML() {
     this.element.innerHTML = `
     <div class="pokemon pokemon__avatar-container">
-        <img 
+        <!-- <img 
           class="pokemon__avatar"
-          <!-- src="img/${this.pokemon.picture}" -->
+           src="img/${this.pokemon.picture}" 
           alt="Pokemon ${this.pokemon.count}"
-        /></div>
+        /> -->
+    </div>
     <div class="pokemon pokemon__data-container">
       <h2 class="pokemon__name">${this.pokemon.count}</h2>
         <ul class="pokemon__data-list">
