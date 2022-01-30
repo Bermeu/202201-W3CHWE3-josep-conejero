@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 /* eslint-disable no-new */
 import Component from "./Component.js";
 import ButtonComponent from "./ButtonComponent.js";
@@ -15,43 +16,6 @@ export default class PageComponent extends Component {
 
     this.getPokemonData();
     this.generateHTML();
-  }
-
-  getPokemonData() {
-    (async function getPokeAPIList() {
-      const response = await fetch("https://pokeapi.co/api/v2/pokemon"); // fetch resuelve a una promesa
-      const pokemonInfoList = await response.json(); // (para extraer json de un body) el método json me devuelve una promesa
-
-      pokemonInfoList.results.forEach((element) => {
-        (async () => {
-          const response2 = await fetch(element.url);
-          const pokemonInfoItem = await response2.json();
-
-          const item = {
-            name: pokemonInfoItem.name,
-            base_experience: pokemonInfoItem.base_experience,
-            height: pokemonInfoItem.height,
-            weight: pokemonInfoItem.weight,
-            picture: pokemonInfoItem.sprites.other.home.front_default,
-          };
-
-          pokemonList.push(item);
-        })();
-      });
-    })();
-    /*     (async () => {
-      const response = await fetch(pokemonList.url); // fetch resuelve a una promesa
-      const pokemonInfo = await response.json(); // (para extraer json de un body) el método json me devuelve una promesa
-
-      pokemonInfo.results.forEach((element) => pokemonList.push(element));
-    })(); */
-  }
-
-  renderPokemonList() {
-    pokemonList.forEach((item) => {
-      const pokemonContainer = document.querySelector(".pokemon-list");
-      const newPokemon = new Pokemon(pokemonContainer, item, () => {});
-    });
   }
 
   generateHTML() {
@@ -77,5 +41,36 @@ export default class PageComponent extends Component {
     new ButtonComponent(controls, "button button--show", "MOSTRAR", () =>
       this.renderPokemonList()
     );
+  }
+
+  getPokemonData() {
+    (async function getPokeAPIList() {
+      const response = await fetch("https://pokeapi.co/api/v2/pokemon"); // fetch resuelve a una promesa
+      const pokemonInfoList = await response.json(); // (para extraer json de un body) el método json me devuelve una promesa
+
+      pokemonInfoList.results.forEach((element) => {
+        (async () => {
+          const response2 = await fetch(element.url);
+          const pokemonInfoItem = await response2.json();
+
+          const item = {
+            name: pokemonInfoItem.name,
+            base_experience: pokemonInfoItem.base_experience,
+            height: pokemonInfoItem.height,
+            weight: pokemonInfoItem.weight,
+            picture: pokemonInfoItem.sprites.other.home.front_default,
+          };
+
+          pokemonList.push(item);
+        })();
+      });
+    })();
+  }
+
+  renderPokemonList() {
+    pokemonList.forEach((item) => {
+      const pokemonContainer = document.querySelector(".pokemon-list");
+      const newPokemon = new Pokemon(pokemonContainer, item, () => {});
+    });
   }
 }
