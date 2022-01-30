@@ -70,7 +70,7 @@ export default class PageComponent extends Component {
   renderPokemonList() {
     pokemonList.forEach((item) => {
       const pokemonContainer = document.querySelector(".pokemon-list");
-      const newPokemon = new Pokemon(pokemonContainer, item, () => {});
+      new Pokemon(pokemonContainer, item, () => {});
     });
   }
 }
