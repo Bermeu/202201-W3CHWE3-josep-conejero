@@ -13,10 +13,10 @@ export default class PageComponent extends Component {
 
   generateHTML() {
     this.element.innerHTML = `
-    <header><h1>Página de Pokémons</h1></header>
-    <nav></nav>
-    <main></main>
-    <footer></footer>
+    <header class="header"><h1 class="mainTitle">Página de Pokémons</h1></header>
+    <nav class="nav"></nav>
+    <main class="main"></main>
+    <footer class="footer"></footer>
     `;
   }
 }
