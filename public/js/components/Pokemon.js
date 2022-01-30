@@ -14,21 +14,16 @@ export default class Pokemon extends Component {
 
   generateHTML() {
     this.element.innerHTML = `
-    <div class="pokemon pokemon__avatar-container">
-        <!-- <img 
+      <img 
           class="pokemon__avatar"
-           src="img/${this.pokemon.picture}" 
-          alt="Pokemon ${this.pokemon.count}"
-        /> -->
-    </div>
-    <div class="pokemon pokemon__data-container">
-      <h2 class="pokemon__name">${this.pokemon.name}</h2>
-        <ul class="pokemon__data-list">
-           <li class="pokemon__data">
-              <span class="pokemon__data-label">${this.pokemon.url}</span>
-           </li>
-        </ul>        
-    </div>
+           src="${this.pokemon.picture}" 
+          alt="Pokemon ${this.pokemon.name}"
+        />
+      <div class="pokemon-data">  
+        <h2 class="pokemon__name">${this.pokemon.name}</h2>
+        <p class="pokemon__data-label">Weight: ${this.pokemon.weight}</p>
+        <p class="pokemon__data-label">Height: ${this.pokemon.height}</p>
+      <div>
     `;
   }
 

@@ -18,25 +18,36 @@ export default class PageComponent extends Component {
   }
 
   getPokemonData() {
-    (async function getPokeAPI() {
+    (async function getPokeAPIList() {
       const response = await fetch("https://pokeapi.co/api/v2/pokemon"); // fetch resuelve a una promesa
+      const pokemonInfoList = await response.json(); // (para extraer json de un body) el método json me devuelve una promesa
+
+      pokemonInfoList.results.forEach((element) => {
+        (async () => {
+          const response2 = await fetch(element.url);
+          const pokemonInfoItem = await response2.json();
+
+          const item = {
+            name: pokemonInfoItem.name,
+            base_experience: pokemonInfoItem.base_experience,
+            height: pokemonInfoItem.height,
+            weight: pokemonInfoItem.weight,
+            picture: pokemonInfoItem.sprites.other.home.front_default,
+          };
+
+          pokemonList.push(item);
+        })();
+      });
+    })();
+    /*     (async () => {
+      const response = await fetch(pokemonList.url); // fetch resuelve a una promesa
       const pokemonInfo = await response.json(); // (para extraer json de un body) el método json me devuelve una promesa
 
       pokemonInfo.results.forEach((element) => pokemonList.push(element));
-    })();
+    })(); */
   }
 
   renderPokemonList() {
-    /* (async function getPokeAPI() {
-      const response = await fetch("https://pokeapi.co/api/v2/pokemon"); // fetch resuelve a una promesa
-
-      const pokemonInfo = await response.json(); // (para extraer json de un body) el método json me devuelve una promesa
-      // pokemon.count
-
-      const pokemonContainer = document.querySelector(".pokemon-list");
-      pokemonContainer.innerHTML = "";
-      new Pokemon(pokemonContainer, pokemonInfo, () => {});
-    })(); */
     pokemonList.forEach((item) => {
       const pokemonContainer = document.querySelector(".pokemon-list");
       const newPokemon = new Pokemon(pokemonContainer, item, () => {});
