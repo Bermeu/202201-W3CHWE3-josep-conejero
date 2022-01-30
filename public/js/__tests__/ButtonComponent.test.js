@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import ButtonComponent from "../components/buttonComponent.js";
+import ButtonComponent from "../components/ButtonComponent.js";
 
 describe("Given a ButtonComponent component", () => {
   describe("When it's rendered", () => {

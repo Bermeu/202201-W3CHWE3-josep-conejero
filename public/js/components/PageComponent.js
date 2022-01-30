@@ -1,6 +1,7 @@
 /* eslint-disable no-new */
 import Component from "./Component.js";
 import ButtonComponent from "./ButtonComponent.js";
+import Pokemon from "./Pokemon.js";
 
 export default class PageComponent extends Component {
   itemsList;
@@ -12,6 +13,18 @@ export default class PageComponent extends Component {
     this.title = title;
 
     this.generateHTML();
+  }
+
+  renderPokemonList() {
+    (async function getPokeAPI() {
+      const response = await fetch("https://pokeapi.co/api/v2/pokemon"); // fetch resuelve a una promesa
+
+      const pokemonInfo = await response.json(); // (para extraer json de un body) el método json me devuelve una promesa
+      // pokemon.count
+      const pokemonContainer = document.querySelector(".pokemon-list");
+      pokemonContainer.innerHTML = "";
+      new Pokemon(pokemonContainer, pokemonInfo, () => {});
+    })();
   }
 
   generateHTML() {
@@ -28,7 +41,6 @@ export default class PageComponent extends Component {
   }
 
   renderControlsContainer() {
-    this.renderInfoComponent();
     this.renderButtonComponent();
   }
 
@@ -38,31 +50,5 @@ export default class PageComponent extends Component {
     new ButtonComponent(controls, "button button--show", "MOSTRAR", () =>
       this.renderPokemonList()
     );
-  }
-
-  renderInfoComponent() {
-    /* const controls = this.element.querySelector(".controls");
-    controls.querySelector(".info")?.remove();
-    const totalSelectedGentlemen = this.gentlemen.filter(
-      (gentleman) => gentleman.selected
-    ).length;
-
-    new InfoComponent(controls, "p", totalSelectedGentlemen); */
-  }
-
-  renderPokemonList() {
-    (async function getPokeAPI() {
-      const response = await fetch("https://pokeapi.co/api/v2/pokemon"); // fetch resuelve a una promesa
-
-      const pokemon = await response.json(); // (para extraer json de un body) el método json me devuelve una promesa
-      // pokemon.count
-    })();
-    /* const pokemonContainer = this.element.querySelector(".items-list");
-    pokemonContainer.innerHTML = "";
-    this.gentlemen.forEach((gentleman) => {
-      new GentlemanComponent(gentlemenContainer, "li", gentleman, () =>
-        this.toggleGentleman(gentleman.id)
-      );
-    }); */
   }
 }
