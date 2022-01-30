@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.pokemon {
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+}
+
+.pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+li {
+  list-style: none;
+  border: 1px solid black;
+}

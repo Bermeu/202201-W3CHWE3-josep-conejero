@@ -1,1 +1,3 @@
-export default pokemonList = [];
+const pokemonList = [];
+
+export default pokemonList;

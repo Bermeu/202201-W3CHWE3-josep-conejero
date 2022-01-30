@@ -22,10 +22,10 @@ export default class Pokemon extends Component {
         /> -->
     </div>
     <div class="pokemon pokemon__data-container">
-      <h2 class="pokemon__name">${this.pokemon.count}</h2>
+      <h2 class="pokemon__name">${this.pokemon.name}</h2>
         <ul class="pokemon__data-list">
            <li class="pokemon__data">
-              <span class="pokemon__data-label"> algún dato</span>${this.pokemon.count}
+              <span class="pokemon__data-label">${this.pokemon.url}</span>
            </li>
         </ul>        
     </div>
