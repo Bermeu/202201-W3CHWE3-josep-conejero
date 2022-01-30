@@ -1,10 +1,10 @@
 import Component from "./Component.js";
 
-export default class Card extends Component {
+export default class Pokemon extends Component {
   pokemon;
 
   constructor(parentElement, className, pokemon) {
-    super(parentElement, className, "div");
+    super(parentElement, className, "li");
     this.pokemon = pokemon;
   }
 }

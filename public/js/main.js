@@ -1,5 +1,12 @@
 /* eslint-disable no-unused-vars */
 import PageComponent from "./components/PageComponent.js";
 
-const cuerpo = document.querySelector("body");
-const page = new PageComponent(cuerpo, []);
+const mainPage = document.querySelector("body");
+/* const optionsNav = [
+  {
+    title: "MOSTRAR",
+    actionOnClick: () => {},
+  },
+]; */
+// const page = new PageComponent(mainPage, [], "Página de Pokémons");
+const page = new PageComponent(mainPage, "Página de Pokémons");
