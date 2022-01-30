@@ -6,11 +6,5 @@ export default class Card extends Component {
   constructor(parentElement, className, pokemon) {
     super(parentElement, className, "div");
     this.pokemon = pokemon;
-
-    // this.element.innerHTML = this.generateHTML();
   }
-
-  /* generateHTML() {
-     código que todavía no sé
-  } */
 }
