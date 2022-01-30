@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Component from "../components/Component.js";
 
 describe("Given a Component", () => {
